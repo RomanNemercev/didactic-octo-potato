@@ -15,6 +15,8 @@ export default {
         semiwhite: "rgba(0, 0, 0, 0.1)",
         cod: "#101010",
         mauve: "#E2BEFF",
+        concrete: "#f3f3f3",
+        mercury: "#e8e8e8",
       },
       lineHeight: {
         100: "100%",
