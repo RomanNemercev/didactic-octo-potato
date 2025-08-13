@@ -1,18 +1,25 @@
 <template>
-    <div>
+    <div class="max-w-[1520px] pt-[119px] mx-auto px-28 pb-20">
         <div v-if="pending">Загрузка...</div>
         <div v-else-if="error">Ошибка: {{ error.message }}</div>
         <div v-else-if="post">
-            <h1>{{ post.title }}</h1>
-            <div class="max-w-[400px]">
+            <h1 class="text-84px leading-100 mb-[73px]">{{ post.title }}</h1>
+            <div class="w-full max-h-[700px]">
                 <ImageWithFallback :original-src="post.image"
-                  :fallback-src="fallbackImages[imageIndex % fallbackImages.length]" alt="Post image"
-                  class="post-image" />
+                  :fallback-src="fallbackImages[imageIndex % fallbackImages.length]" alt="Post image" height="700px"
+                  margin-bottom="80px" />
             </div>
-            <p><strong>Создано:</strong> {{ formatDate(post.createdAt) }}</p>
-            <p><strong>Превью:</strong> {{ post.preview }}</p>
-            <p><strong>Описание:</strong> {{ post.description }}</p>
-            <NuxtLink :to="backLink" class="back-link">Назад к списку</NuxtLink>
+            <p class="text-base leading-100 mb-8">About</p>
+            <!-- <p><strong>Создано:</strong> {{ formatDate(post.createdAt) }}</p> -->
+            <!-- <p><strong>Превью:</strong> {{ post.preview }}</p> -->
+            <p class="text-[36px] leading-[124%] max-w-[57.155%] mb-8">
+                <!-- <strong>Описание:</strong> -->
+                {{ post.description }}
+            </p>
+            <NuxtLink :to="backLink"
+              class="text-xl font-normal text-white py-11px px-[26.17px] bg-cod rounded-full leading-normal inline-block">
+                Назад к
+                списку</NuxtLink>
         </div>
         <div v-else>Пост не найден</div>
     </div>
@@ -45,26 +52,3 @@ function formatDate(dateString) {
     });
 }
 </script>
-
-<style>
-.post-image {
-    max-width: 100%;
-    height: auto;
-    border-radius: 8px;
-    margin-bottom: 1rem;
-}
-
-.back-link {
-    display: inline-block;
-    margin-top: 1rem;
-    padding: 0.5rem 1rem;
-    background-color: #007bff;
-    color: white;
-    text-decoration: none;
-    border-radius: 4px;
-}
-
-.back-link:hover {
-    background-color: #0056b3;
-}
-</style>

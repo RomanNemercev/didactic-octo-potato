@@ -1,9 +1,9 @@
 <template>
-    <div class="max-w-[1520px] px-10 py-35px w-full flex items-center">
-        <NuxtLink to="/" class="mr-auto">
+    <div class="max-w-[1520px] px-10 py-[35px] w-full flex items-center mx-auto">
+        <NuxtLink to="/" class="mr-auto mt-[-3px]">
             <IconLogoBlack class="w-[84px] h-[25px]" :fontControlled="false" />
         </NuxtLink>
-        <div class="max-w-[455px] w-full items-center justify-between flex">
+        <div class="max-w-[455px] w-full items-center justify-between flex py-[2px]">
             <nav>
                 <ul class="flex gap-x-[58px]">
                     <li>
@@ -18,7 +18,7 @@
                 <button class="border-2 border-semiwhite rounded-full p-3">
                     <IconBritish class="text-2xl" filled />
                 </button><button
-                  class="text-xl font-normal text-white py-11px px-[26.17px] bg-cod rounded-full leading-normal">Let’s
+                  class="text-xl font-normal text-white py-11px px-[33px] bg-cod rounded-full leading-normal">Let’s
                     work</button>
             </div>
         </div>

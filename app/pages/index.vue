@@ -1,5 +1,5 @@
 <template>
-    <div class="pt-[120px] pb-[140px] px-28">
+    <div class="pt-[117px] pb-[140px] px-28 max-w-[1520px] mx-auto">
         <h1 class="text-[84px] leading-100 mb-[58px]">Articles</h1>
         <div class="min-h-[836px]">
             <div v-if="pending">Загрузка...</div>
@@ -11,8 +11,12 @@
                       @mouseover="hoveredIndex = index" @mouseleave="hoveredIndex = null">
                         <div :class="{ 'transform-on': hoveredIndex === index }">
                             <ImageWithFallback :original-src="post.image"
-                              :fallback-src="fallbackImages[index % fallbackImages.length]" alt="Preview" />
-                            <div class="py-2.5 text-xl">
+                              :fallback-src="fallbackImages[index % fallbackImages.length]" alt="Preview"
+                              margin-bottom="16px" />
+                            <div :class="[
+                                'py-5 text-xl leading-6',
+                                index % 2 === 1 ? 'pt-2.5 pb-2.5' : ''
+                            ]">
                                 <h2 class="truncate">{{ post.title }}</h2>
                                 <p class="line-clamp-2">{{ post.preview }}</p>
                             </div>
@@ -27,7 +31,7 @@
                 </div>
             </div>
         </div>
-        <div class="w-fit mt-[50px]">
+        <div class="w-fit mt-[39px]">
             <Pagination :current-page="currentPage" :total-pages="totalPages" @page-changed="changePage" />
         </div>
     </div>
@@ -71,14 +75,14 @@ function changePage(page) {
 }
 
 .card div.transform-on {
-    transform: translateY(-36px);
+    transform: translateY(-20px);
 }
 
 .grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     column-gap: 32px;
-    row-gap: 40px;
+    row-gap: 30px;
 }
 
 .transition-custom {

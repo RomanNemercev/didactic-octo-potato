@@ -10,6 +10,7 @@ export default {
       spacing: {
         "11px": "11px",
         "35px": "35px",
+        "38px": "38px",
       },
       colors: {
         semiwhite: "rgba(0, 0, 0, 0.1)",
@@ -22,9 +23,12 @@ export default {
         100: "100%",
         120: "120%",
       },
-    },
-    letterSpacing: {
-      min: "0.01em",
+      fontSize: {
+        "84px": "84px",
+      },
+      letterSpacing: {
+        min: "0.01em",
+      },
     },
   },
   plugins: [],

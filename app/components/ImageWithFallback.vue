@@ -1,25 +1,18 @@
 <template>
-    <img :src="currentSrc" :alt="alt" class="w-full h-[280px] object-cover mb-6" loading="lazy"
-      @error="handleImageError" />
+    <img :src="currentSrc" :alt="alt" loading="lazy" @error="handleImageError" class="w-full object-cover"
+      :style="{ height, marginBottom }" />
 </template>
 
 <script setup>
 import { ref, onMounted } from 'vue';
 
 // Определяем props
-const { originalSrc, fallbackSrc, alt } = defineProps({
-    originalSrc: {
-        type: String,
-        default: '',
-    },
-    fallbackSrc: {
-        type: String,
-        required: true,
-    },
-    alt: {
-        type: String,
-        default: 'Image',
-    },
+const { originalSrc, fallbackSrc, alt, height = '280px', marginBottom = '1.5rem' } = defineProps({
+    originalSrc: { type: String, default: '' },
+    fallbackSrc: { type: String, required: true },
+    alt: { type: String, default: 'Image' },
+    height: { type: String, default: '280px' },
+    marginBottom: { type: String, default: '1.5rem' }
 });
 
 const currentSrc = ref(fallbackSrc);
@@ -29,14 +22,8 @@ onMounted(() => {
         const img = new Image();
         img.src = originalSrc;
         img.onload = () => {
-            console.log(`Loaded original image: ${originalSrc}`);
             currentSrc.value = originalSrc;
         };
-        img.onerror = () => {
-            console.log(`Failed to load original image: ${originalSrc}, using fallback: ${fallbackSrc}`);
-        };
-    } else {
-        console.log(`No originalSrc provided, using fallback: ${fallbackSrc}`);
     }
 });
 
