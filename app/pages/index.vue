@@ -2,7 +2,9 @@
     <div class="pt-[117px] pb-[140px] px-28 max-w-[1520px] mx-auto">
         <h1 class="text-[84px] leading-100 mb-[58px]">Articles</h1>
         <div class="min-h-[836px]">
-            <div v-if="pending">Загрузка...</div>
+            <div v-if="pending" class="flex justify-center items-center h-[836px]">
+                <Spinner />
+            </div>
             <div v-else-if="error">Ошибка: {{ error.message }}</div>
             <div v-else>
                 <div class="grid grid-cols-4 gap-4">
@@ -58,6 +60,7 @@ const { data, pending, error, refresh } = await useAsyncData(
         }
     }
 );
+
 
 const posts = computed(() => data.value?.posts || []);
 const total = computed(() => data.value?.total || 0);

@@ -96,6 +96,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: end;
-    font-size: clamp(14px, 2vw, 20px);
+    font-size: 32px;
+    padding-bottom: 17px;
 }
 </style>
